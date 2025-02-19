@@ -1,5 +1,771 @@
-template-repository (1.0-1) unstable; urgency=medium
+opencascade (7.8.1+dfsg1-3) unstable; urgency=medium
 
-  * Initial release
+  * Team upload.
+  * Fix FTBFS bug "invalid conversion from ‘unsigned char*’ to ‘const char*’".
+    Use auto instead of specific type. Closes: #1083127.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Santiago Vila <sanvila@debian.org>  Wed, 02 Oct 2024 22:00:00 +0200
+
+opencascade (7.8.1+dfsg1-2) unstable; urgency=medium
+
+  * Fix d/control typo in a Break: statement
+  * Fix some lintian warnings and remove some obsolete overrides.
+  * Fix symlink in occt-draw pointing to old version.
+  * Bump S-V to 4.7.0 - no changes required.
+  * Add patch to remove ffile-prefix-map in the CMake modules.
+
+ -- Tobias Frost <tobi@debian.org>  Fri, 24 May 2024 19:00:24 +0200
+
+opencascade (7.8.1+dfsg1-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Drop old Breaks/Replaces on ancient 7.4 series, fulfilled since oldstable.
+  * Also Break/Replaces on the t64 libraries introduced in 7.6.3+dfsg1-7.1.
+
+ -- Tobias Frost <tobi@debian.org>  Fri, 24 May 2024 15:24:57 +0200
+
+opencascade (7.8.1+dfsg1-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+    - patches rebased
+    - renaming of packages due to new upstream version 7.8
+  * Update d/copyright, a file has been moved around and the yearly years bump.
+
+ -- Tobias Frost <tobi@debian.org>  Thu, 16 May 2024 12:06:54 +0200
+
+opencascade (7.7.1+dfsg1-1~exp2) experimental; urgency=medium
+
+  * Fix double installation of libTKXDE.so. (Closes: #1037067)
+
+ -- Tobias Frost <tobi@debian.org>  Thu, 22 Jun 2023 21:16:45 +0200
+
+opencascade (7.7.1+dfsg1-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+  * Rebase patches and adapt patches to new upstream version.
+  * Update packaging for new upstream release.
+  * Wrap-and-sort on d/control.
+  * Update d/copyright.
+
+ -- Tobias Frost <tobi@debian.org>  Mon, 29 May 2023 21:39:00 +0200
+
+opencascade (7.6.3+dfsg1-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Rename libraries for 64-bit time_t transition.  Closes: #1062832
+
+ -- Steve Langasek <vorlon@debian.org>  Sat, 02 Mar 2024 10:13:48 +0000
+
+opencascade (7.6.3+dfsg1-7) unstable; urgency=medium
+
+  * Update broken symlink /usr/bin/occt-draw to new version
+     occt-draw-7.6" (Closes: #1036581)
+
+ -- Tobias Frost <tobi@debian.org>  Tue, 23 May 2023 09:45:56 +0200
+
+opencascade (7.6.3+dfsg1-6) unstable; urgency=medium
+
+  * Let libocct-data-exchange-dev Conflicts: with liboce-modeling-
+    dev, liboce-visualization-dev, to avoid unpack errors.
+    (Closes: #1035009)
+  * Fix lintian E: depends-on-obsolete-package, replacing
+    libfreetype6-dev with libfreetype-dev and
+    libgl1-mesa-dev with libgl-dev
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 14 May 2023 11:37:53 +0200
+
+opencascade (7.6.3+dfsg1-5) unstable; urgency=medium
+
+  * Add Breaks relation to occt-misc.
+  * Replace B-Ds of transitional packages with their replacements.
+  * Remove obsolete Replace/Breaks for old version 7.3.
+
+ -- Tobias Frost <tobi@debian.org>  Thu, 20 Oct 2022 22:08:48 +0200
+
+opencascade (7.6.3+dfsg1-4) unstable; urgency=medium
+
+  * Move CMake modules to libocct-foundation-dev (Closes: #1021566).
+  * Add dependency on occt-misc for libocct-visualization-7.6, as the library
+    might use the resources.
+  * Move cmake modules to multiarch path and use ${DEB_HOST_MULTIARCH} in the
+    install files. (patch 0010-fix-cmake-module.patch)
+
+ -- Tobias Frost <tobi@debian.org>  Thu, 20 Oct 2022 06:37:30 +0200
+
+opencascade (7.6.3+dfsg1-3) unstable; urgency=medium
+
+  * opencascade-draw: Move the -dev dependencies to the dev package.
+    (Closes: #1017620)
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 28 Aug 2022 12:00:30 +0200
+
+opencascade (7.6.3+dfsg1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Tobias Frost <tobi@debian.org>  Tue, 02 Aug 2022 15:06:17 +0200
+
+opencascade (7.6.3+dfsg1-1) experimental; urgency=medium
+
+  * New upstream release.
+    - Adapt d/occt-draw.install for new version.
+  * Update debian/copyright years.
+  * Remove no longer applied patch files from d/patches.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 31 Jul 2022 15:50:43 +0200
+
+opencascade (7.6.2+dfsg1-2) experimental; urgency=medium
+
+  * Install new files, mostly headers, into the appropiate packages.
+
+ -- Tobias Frost <tobi@debian.org>  Fri, 15 Jul 2022 11:56:52 +0200
+
+opencascade (7.6.2+dfsg1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Targeting experimental due to SONAME bump.
+  * Refreshing patches, removing applied patches.
+  * Updating d/*install files, as several internal headers
+    are no longer exposed in the -dev packages.
+  * d/changelog: Quote Adam Powell, IV's display name, so that
+    the SNR with lintian is improved.
+  * Update d/copyright.
+
+ -- Tobias Frost <tobi@debian.org>  Wed, 29 Jun 2022 15:31:08 +0200
+
+opencascade (7.5.2+dfsg1-3) UNRELEASED; urgency=medium
+
+  * Revert "do not build with TBB on mips*" #1013753 has been fixed.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 26 Jun 2022 16:44:31 +0200
+
+opencascade (7.5.2+dfsg1-2) unstable; urgency=medium
+
+  * Do not build with TBB on mips64/mips64el. See #1013753 for details.
+
+ -- Tobias Frost <tobi@debian.org>  Sat, 25 Jun 2022 16:50:30 +0200
+
+opencascade (7.5.2+dfsg1-1) unstable; urgency=medium
+
+  * [a006615] New upstream version 7.5.2+dfsg1
+  * [b52e7f3] Update hardcoded versions to 7.5.2
+  * [becf203] Add upstream TBB fix patch
+  * [c47918a] Re-enable building with TBB
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Thu, 16 Jun 2022 12:41:43 -0500
+
+opencascade (7.5.1+dfsg1-3) unstable; urgency=medium
+
+  * Disabling tbb support for now. (Closes: #1012128).
+
+ -- Tobias Frost <tobi@debian.org>  Mon, 13 Jun 2022 20:33:13 +0200
+
+opencascade (7.5.1+dfsg1-2) unstable; urgency=medium
+
+  * [88b5e8e] Use list-missing to fix arch all builds
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Sun, 07 Feb 2021 18:02:09 -0600
+
+opencascade (7.5.1+dfsg1-1) unstable; urgency=medium
+
+  * [9129a3e] Add chamfer and fillet error checking patch
+  * [6478887] Run cme fixes
+  * [a440db7] New upstream version 7.5.1+dfsg1
+  * [99e4376] Refresh patches
+  * [8479961] Update occt-draw hardcoded version references
+  * [820116c] Add FlexLexer.h to debian/not-installed
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Fri, 05 Feb 2021 19:51:47 -0600
+
+opencascade (7.5.0+dfsg1-4) unstable; urgency=medium
+
+  * [c80ffb1] Add blobfish patches
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Sat, 23 Jan 2021 19:02:43 -0600
+
+opencascade (7.5.0+dfsg1-3) unstable; urgency=medium
+
+  * [c688fcc] Undo adding VTK integration for now (Closes: #978017)
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Sat, 26 Dec 2020 19:01:29 -0600
+
+opencascade (7.5.0+dfsg1-2) unstable; urgency=medium
+
+  * Include files from VTK integration
+  * Add Breaks+Replaces for 7.3
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Wed, 23 Dec 2020 10:52:25 -0600
+
+opencascade (7.5.0+dfsg1-1) unstable; urgency=medium
+
+  * Build integration with VTK 7.1
+  * Upload to unstable.
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Sun, 20 Dec 2020 17:36:46 -0600
+
+opencascade (7.5.0+dfsg1-1~exp1) experimental; urgency=medium
+
+  [ Tobias Frost ]
+  * Another take on CI…
+    - disable dbgsym generation on CI builds (artifacts too big, failing build)
+    - disable rerepo builds on CI builds (runs into timeout)
+    - override linitan errors about Adam's email address (See #966295
+      once fixed, revert commit 8f49f5ebdee!
+
+  [ Kurt Kremitzki ]
+  * New upstream version 7.5.0+dfsg1
+  * Update packaging for v7.5.0
+  * Build with RapidJSON for glTF support
+
+ -- Kurt Kremitzki <kkremitzki@debian.org>  Mon, 23 Nov 2020 13:07:58 -0600
+
+opencascade (7.4.1+dfsg1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Tobias Frost <tobi@debian.org>  Sat, 25 Apr 2020 20:53:17 +0200
+
+opencascade (7.4.1+dfsg1-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 12 Apr 2020 09:17:20 +0200
+
+opencascade (7.4.0+dfsg1-1) experimental; urgency=medium
+
+  [ Kurt Kremitzki ]
+  * [f98b71c] New upstream version 7.4.0+dfsg1
+  * [dcc600a] Update packaging for 7.4.0
+
+  [ Tobias Frost ]
+  * Upload to experimental to clear NEW.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 05 Apr 2020 14:31:28 +0200
+
+opencascade (7.3.3+dfsg1-2) unstable; urgency=medium
+
+  * Fix FTCBFS for armel: build/host confusion. (Closes: #930938)
+    Thanks to Helmut Grohne for the patch.
+  * Add patch tp configure doxygen not to use php as search engine.
+    (Closes: #914498)
+  * Add a 64x64 icon and use it for the desktop file and install it
+    to /usr/share/icons/hicolor/64x64/apps, as hinted by appstream.
+  * Drop pkg-kde-tools from B-D an d/rules.
+  * Update d/copyright years.
+
+ -- Tobias Frost <tobi@debian.org>  Wed, 08 Apr 2020 14:12:47 +0200
+
+opencascade (7.3.3+dfsg1-1) unstable; urgency=medium
+
+  * [c17bb14] Update debian/watch to pick up patch releases
+  * [133582a] New upstream version 7.3.3+dfsg1
+
+ -- Kurt Kremitzki <kurt@kwk.systems>  Sat, 20 Jul 2019 02:01:53 -0500
+
+opencascade (7.3.0+dfsg1-5) unstable; urgency=medium
+
+  * [05357f5] Use opencascade instead of occt for installation paths
+    (Closes: #920798)
+  * [0ad19ce] Remove unneeded CMake flags
+
+ -- Kurt Kremitzki <kurt@kwk.systems>  Tue, 19 Feb 2019 13:38:38 -0600
+
+opencascade (7.3.0+dfsg1-4) unstable; urgency=medium
+
+  * Drop .symbols files -- they are simply not sustainable. (Closes: #911554)
+  * Bump S-V to 4.2.1 -- Add Rules-Requires-Root: no.
+
+ -- Tobias Frost <tobi@debian.org>  Tue, 23 Oct 2018 22:50:46 +0200
+
+opencascade (7.3.0+dfsg1-3) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Import symbols for powerpcspe.
+  * Bump S-V to 4.1.4 -- no changes required
+
+ -- Tobias Frost <tobi@debian.org>  Wed, 27 Jun 2018 08:13:20 +0200
+
+opencascade (7.3.0+dfsg1-2) experimental; urgency=medium
+
+  [ Tobias Frost ]
+  * Import symbols for 7.3.0 from buildlogs for archs:
+      alpha arm64 armel armhf i386 m68k mips mips64el mipsel powerpc ppc64
+      ppc64el s390x sh4
+
+  [ Kurt Kremitzki ]
+  * Add patch to enable exception handling.
+
+ -- Tobias Frost <tobi@debian.org>  Sat, 23 Jun 2018 12:27:11 +0200
+
+opencascade (7.3.0+dfsg1-1) experimental; urgency=medium
+
+  * New upstream release.
+    - Remove patch glibc-xlocale.diff, applied upstream.
+    - Refresh remaining patches to remove fuzz.
+    - As the so-name is now 7.3, rename library packages and adapt package
+      accordingly.
+    - Remove no longer existing files from the *.install files and add the new
+      ones as well.
+    - symbols-files: Remove symbols that are no longer in the libs for 7.3.0.
+  * Import symbols for powerpcspe from the 7.2.0+dfsg1-5 build.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 10 Jun 2018 00:51:46 +0200
+
+opencascade (7.2.0+dfsg1-5) experimental; urgency=medium
+
+  * Fix symbols for alpha, armel, mipsel64, mips and sh4.
+  * Add coprright clarification for the derived files originally from RINA
+    S.p.A.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 27 May 2018 20:19:10 +0200
+
+opencascade (7.2.0+dfsg1-4) experimental; urgency=medium
+
+  * Add patch to fix FTBFS on armel by not enforcing the atomic requirement.
+  * Fix symbols for arm64, armhf, mipsel, powerpc, ppc64, ppc64el and s390.
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 27 May 2018 00:38:51 +0200
+
+opencascade (7.2.0+dfsg1-3) experimental; urgency=medium
+
+  * Fix FTBFS due to indep/arch issues.
+
+ -- Tobias Frost <tobi@debian.org>  Sat, 26 May 2018 16:53:26 +0200
+
+opencascade (7.2.0+dfsg1-2) experimental; urgency=medium
+
+  * Working on the symbols, utilizing pkgkde_symbolshelper to gernerate
+    thesymbols file.
+      - that needs a B-D on it and a tweak on d/rules.
+      - after running the helpers manually on amd64, add those symbols file.
+        I keep it mangled for the moment to easier import the other archs.
+      - importing i386 symbols from a local pbuilder build.
+
+ -- Tobias Frost <tobi@debian.org>  Sat, 26 May 2018 12:50:39 +0200
+
+opencascade (7.2.0+dfsg1-1) experimental; urgency=low
+
+  [ Kurt Kremitzki ]
+  * Reintroducing package (Closes: #882761)
+  * New upstream release; software now uses LGPL license
+    instead of nonfree license which was the cause of the
+    previous version's (6.5.0) removal.
+  * Upstream now refers to this library as OCCT and so a naming scheme of
+    libocct-* has been implemented for the packages.
+  * In accordance with upstream, split libocct-modeling into
+    libocct-modeling-algorithms and libocct-modeling-data
+  * Improved package short descriptions.
+  * Removed debian/README.Debian.html and debian/README.source
+  * Removed non-applicable patches and cruft
+  * Bumped compat level to 11 and added dep3 headers to patches.
+  * Updated VCS-Git info in d/control to point at salsa.d.o
+  * Renamed upstream DRAWEXE to occt-draw, which is symlinked
+    via new occt-draw.links file from /usr/bin/occt-draw-7.2
+    in alignment with upstream's deployment of DRAWEXE
+  * Updated debian/*.install to include new files
+  * Corrected git branch format
+  * Added libocct-doc package for upstream Doxygen HTML documentation
+  * Split occt-draw package into shared library, -dev, and binary packages
+  * Updated lintian-overrides where appropriate
+  * Added experimental d/watch file tracking upstream Gitweb site
+
+  [ Tobias Frost ]
+  * Extend d/watch for repacking filename mangling.
+  * Add myself as uploader.
+
+ -- Kurt Kremitzki <kkremitzki@gmail.com>  Sat, 31 Mar 2018 09:04:17 +0000
+
+opencascade (6.5.0.dfsg-2) unstable; urgency=low
+
+  [ Denis Barbier ]
+  * Add debian/patches/submitted/ftbfs-g++4.6.patch
+    Fix FTBFS with g++ 4.6.  Closes: #624943
+  * Add debian/patches/submitted/fix-Abs-parenthesis.patch
+    Fix misplaced parenthesis, patch by Fotios Sioutis
+    on the OpenCascade forum.
+  * debian/patches/hurd-fixes.patch: Rename ED variable into
+    EData, as ED is a macro defined in errno.h on the Hurd.
+  * Fix sparc v9 detection in fix-asm.patch to fix FTBFS
+    on sparc64.
+  * Fix debian/patches/compatibility-occ630-Value.patch: the
+    old Value() method did return a distance whereas
+    SquareDistance() now returns a square distance, so Value()
+    must call sqrt().  Thanks to Roman Lygin and Mikhail Sazonov
+    for the catch on the OpenCASCADE forum.
+
+  [ Adam C. Powell, IV ]
+  * Bumped Standards-Version to 3.9.2, no changes needed.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Fri, 06 May 2011 09:52:41 -0400
+
+opencascade (6.5.0.dfsg-1) unstable; urgency=low
+
+  [ Adam C. Powell, IV ]
+  [ Denis Barbier ]
+  * New upstream version: Closes: #616736
+    - Bump sonames to 6.5.0.
+    - Java support and WOK have been dropped.  Closes: #603279
+  * debian/control: Build-depends on libftgl-dev and libgl2ps-dev.
+  * debian/control: Remove conflicts against old opencascade packages.
+  * debian/patches: WOK has been removed, drop specific patches:
+         wokunix-fdescr.patch           wokstep_extract.patch
+         make-wok-libs-private.patch    wok-install.patch
+         tcl-cleanup.patch
+  * Drop debian/patches/fix-mesher-segfault.patch, upstream applied
+    a different fix.
+  * Drop debian/patches/udlist.patch, ros/adm/UDLIST has been shipped.
+  * Merge debian/patches/occ6.3.0.patch into debian/patches/drop-config-h.patch
+  * Reorder patches and move patches which have been reported
+    upstream into debian/patches/submitted/ to help maintenance.
+  * Add debian/patches/fix-ftgl-includes.patch: upstream supports an
+    old version of ftgl, sources must be patched to work with a
+    newer one.
+  * Add debian/patches/submitted/move-osd_fontmgr-vis.patch: move
+    OSD_FontMgr from TKernel into TKOpenGl so that libTKernel
+    is not linked against X11.
+  * Add debian/patches/submitted/enable-freeimage.patch: fix
+    compilation against recent freeimageplus.  For now the configure
+    script is called without --with-freeimage though, this pulls in
+    too many dependencies.
+  * Add debian/patches/submitted/add-enable-openmp.patch: add a
+    new configure option --enable-openmp to parallelize loops with
+    openmp instead of tbb.
+  * Add debian/patches/compatibility-occ630-Value.patch: several
+    classes break compatibility with 6.3.0 by renaming exported
+    methods.  This patch creates aliases to help Debian packages
+    being ported to opencascade 6.5.0, but it will be removed
+    as soon as those applications are fixed, we do not want to
+    diverge from upstream.
+  * Add debian/patches/submitted/workaround-bug-mesher.patch: the
+    new mesher in OCC 6.5.0 is more robust, but also produces much
+    larger meshes on B-spline surfaces.  Until this bug is fixed, it
+    seems better to not use the specific B-spline mesher, but the
+    generic one.  Patch provided by Jérôme Robert.
+  * Add debian/patches/debian/patches/configure-cflags.patch:
+    compile C sources with -D_GNU_SOURCE as with C++.  This is mostly
+    cosmetics, but allows installing libraries on a very old system
+    (glibc 2.2.5 against 2.7 without this flag), because C source
+    files in ros/src/IGESFile use sscanf, which adds a dependency
+    against glibc >= 2.7 unless compiled with -D_GNU_SOURCE.
+  * Add debian/patches/submitted/fix-display-text.patch: text doesn't
+    get displayed in 6.5, patch provided by Venugopal Gudimetla on
+    the opencascade forum.
+  * Add debian/patches/hurd-fixes.patch: this patch will gather
+    fixes needed to build on Hurd.  In this hunk, drop method
+    OSD_Process::CurrentDirectory(), it is unused but cause FTBFS.
+  * Slightly modify fix-asm.patch to use upstream assembly code on
+    x86 and amd64, and atomic extensions provided by GNU g++ on
+    other architectures.  Disable them on sparcv9, they currently
+    cause a FTBFS.
+  * Move some header files between libopencascade-ocaf-lite-dev and
+    libopencascade-ocaf-dev to be more consistent with upstream
+    modules.  Breaks/Replaces are added in debian/control to
+    help upgrades.
+
+  [ Adam C. Powell, IV ]
+  * Bumped Standards-Version to 3.9.1, no changes needed.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Mon, 21 Mar 2011 07:52:34 -0400
+
+opencascade (6.3.0.dfsg.1-6) unstable; urgency=low
+
+  [ Denis Barbier ]
+  * debian/control: In Build-Depends, replace default-jdk-builddep
+    by default-jdk.  Closes: #589640
+  * Add debian/patches/fix-tcl8.6.patch to fix FTBFS with tcl 8.6
+  * Add debian/patches/fix-mesher-segfault.patch to fix a segfault
+    with some buggy faces. (Thanks: Jerome Robert; closes: #589639)
+  * Add debian/patches/OpenCASCADE6.3.0-strcmp.patch, replace ==
+    operator by strcmp when comparing char* pointers.  Patch found
+    in openSUSE rpm.
+
+  [ Adam C. Powell, IV ]
+  * Added source lintian overrides for my name.
+  * Bumped Standards-Version to 3.9.0, no changes needed.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 21 Jul 2010 13:25:21 -0400
+
+opencascade (6.3.0.dfsg.1-5) unstable; urgency=low
+
+  [ Denis Barbier ]
+  * Add debian/README.source
+  * Add debian/patches/fix-tklcaf.patch, contributed by Michael Wild
+    on Opencascade forum.
+  * Let debian/patches/casroot.patch also patch Resource_Manager.cxx,
+    this class is used to load various default values.
+  * Add debian/patches/multibuf.patch, contributed by Dan Horák, to fix
+    detection of multibuf.h
+  * Add ${misc:Depends} to all Depends fields.
+  * In dev packages, set Depends against corresponding shared library to
+    (>= ${source:Upstream-Version}), (<< ${source:Upstream-Version}+1~)
+  * Add debian/source/format, use 3.0 (quilt) because we're ready for it.
+  * Add dh_lintian to debian/rules, and bump dependency on debhelper
+    to >= 6.0.7~.
+  * Bump Standards-Version to 3.8.4, no changes needed.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 26 May 2010 21:43:29 -0400
+
+opencascade (6.3.0.dfsg.1-4) unstable; urgency=low
+
+  [Denis Barbier]
+  * New fix-osd_path.patch to try to prevent build failures
+    on architectures not supported upstream.
+  * Fix 2 lintian warnings:
+    + Drop dh_desktop from debian/rules
+    + Fix versioned build-dependency on debhelper
+  * debian/rules: Fix 'unpatch' target to do its job when using
+    the new dpkg source format 3.0 (quilt).  (closes: #538691)
+  * New kfreebsd.patch to make OpenCascade build on GNU/kFreeBSD
+    (closes: #542718).  Thanks to Aurélien Jarno for the report
+    and the patch.
+  * Remove *.la libtool files.  The only reverse build-dependencies
+    are gmsh and elmerfem, and they do not ship *;la files, so it
+    is safe to remove them from libopencascade-*-dev packages.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Sun, 23 Aug 2009 20:16:05 +0200
+
+opencascade (6.3.0.dfsg.1-3) unstable; urgency=low
+
+  [Denis Barbier]
+  * Modify debian/opencascade-draw.install to filter out unused
+    scripts from /usr/share/opencascade/6.3.0/src/DrawResources/
+    (closes: #518799)
+  * New fix-asm.patch to replace x86 assembly code by atomic
+    extensions provided by GNU g++.  (closes: #518837)
+  * Build against tcl8.5-dev and tk8.5-dev.
+  * Drop unknown --with-xmu-{include,library} configure flags.
+  * Do not compress files in opencascade-examples.  (closes: #496469)
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Sun, 08 Mar 2009 20:17:06 +0100
+
+opencascade (6.3.0.dfsg.1-2) unstable; urgency=low
+
+  [Denis Barbier]
+  * New drop-config-h.patch patch.  Make sure that installed
+    headers do not #include <config.h> (closes: #506117).  Thanks to Aleix on
+    OpenCascade forum for the report.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 19 Nov 2008 18:03:34 -0500
+
+opencascade (6.3.0.dfsg.1-1) unstable; urgency=low
+
+  [Denis Barbier]
+  * New Upstream Version.  (closes: #501128)
+  * Upstream replaced Triangle by a free implementation,
+    thus external-triangle.patch is removed as well as
+    dependencies against libtriangle-dev.
+  * Remove ros/src/FontMFT/*.mft files, these font files
+    have no sources.  (As a side effect, closes: #487116)
+  * All non-free bits have thus been removed, and opencascade
+    is moved from non-free into main.
+  * Jason Kraftcheck's patches have been applied upstream,
+    occ6.2.patch and correct-libs.patch are dropped.
+  * Split packages as suggested by Jason Kraftcheck in
+    http://lists.debian.org/debian-science/2008/01/msg00023.html
+    + opencascade-tools is split into opencascade-draw
+      and opencascade-wok
+    + libopencascade6.3.0 is split into
+      libopencascade-foundation-6.3.0, libopencascade-modeling-6.3.0,
+      libopencascade-ocaf-lite-6.3.0, libopencascade-ocaf-6.3.0 and
+      libopencascade-visualization-6.3.0.
+    + Ditto for -dev packages.
+  * New upstream build system now installs everything with
+    'make install', but DESTDIR support was missing and
+    requires a new destdir.patch patch.
+  * Call configure from a new directory to ease cleaning up.
+  * New wok-install.patch to move WOK files into
+    /usr/share/tcltk/wok2.0/
+  * Add --disable-dependency-tracking --disable-maintainer-mode
+    to configure flags to speed up compilation and avoid
+    running autotools
+  * New tkernel-ld.patch patch to add -ldl to libTKernel
+    which uses dlopen.  This flag was previously set by
+    accident because ros/configure.in did set LIBS=$TCL_LIBS.
+  * New occ6.3.0.patch patch to fix C++ configure tests and
+    drop #ifdef from installed headers, they must not rely
+    on config.h providing the expected symbols.
+  * New dep-libs.patch to fix inter-library dependencies.
+  * New make-wok-libs-private.patch to move private WOK
+    libraries into /usr/lib/opencas, and remove library versions.
+  * New make-draw-libs-private.patch to move private DRAW
+    libraries into /usr/lib/opencas, and remove library versions.
+    Add rpath information into DRAWEXE to find plug-ins.
+  * New wokunix-fdescr.patch patch to fix build failure when
+    compiling with -D_FORTIFY_SOURCE=2.  Patch written by
+    Andrea Florio for openSUSE.
+  * New wokstep_extract.patch patch to fix WOK, garbage was written
+    into generated files.  (closes: #501352)
+  * debian/rules: Replace obsolete dh_movefiles by dh_install.
+  * Copy ros/adm/UDLIST from Windows binary tarball, the one
+    shipped with sources is outdated.  This is useful to
+    compile binaries with WOK.
+  * Add Vcs-Browser and Vcs-Git fields in debian/control.
+  * Build-depends on default-jdk-builddep to enable java wrapper.
+  * Modify CreateFactory.tcl to only define CreateFactory function,
+    this script can then be used by other scripts.
+
+  [Adam Powell]
+  * Closing old bugs fixed in previous unreleased versions (closes: #491912,
+    #494715).
+  * Changed Maintainer to debian-science and added myself as the first
+    uploader (closes: #496668).
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Mon, 20 Oct 2008 10:57:41 -0400
+
+opencascade (6.2.dfsg-1) unstable; urgency=low
+
+  * DFSG version with doc/, ros/src/Triangle/triangle.h, and most of
+    ros/src/Triangle/triangle.c removed.
+  * Patches enable use af external (non-free) triangle library.
+  * Uses quilt to apply patches.
+  * Moved Standard_Macro64.hxx to versioned directory (Thanks: Denis Barbier;
+    closes: #491912).
+  * Made opencascade-tools depend on libopencascade-dev (closes: #494715).
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Tue, 12 Aug 2008 17:59:40 -0400
+
+opencascade (6.2-7) unstable; urgency=low
+
+  * Added menu and .desktop entry for DRAWEXE (closes: #486028).
+  * Added --disable-debug to configure flags (Thanks: Denis Barbier;
+    closes: #488891).
+  * Disabled X11/bitmaps/icon.h inclusion (Thanks: Denis Barbier;
+    closes: #489127).
+  * New and excessively simple manpage for DRAWEXE.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Tue, 08 Jul 2008 20:50:55 -0400
+
+opencascade (6.2-6) unstable; urgency=low
+
+  * Disabled mmap in font rendering (Thanks: Denis Barbier; closes: #487407).
+  * Changed PPC variable to ppc to avoid conflict with PPC macro (Thanks: Denis
+    Barbier; closes: #487810).
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Mon, 30 Jun 2008 11:03:42 -0400
+
+opencascade (6.2-5) unstable; urgency=low
+
+  * Moved Standard_Macro.hxx to a new directory in the shared lib package
+    (Thanks: Denis Barbier; closes: #486386).
+  * Added documentation describing Debian packaging and DRAWEXE use
+    (closes: #486099).
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Thu, 19 Jun 2008 11:30:20 -0400
+
+opencascade (6.2-4) unstable; urgency=low
+
+  * Moved lib package /usr/share files into version-specific directory
+    (Thanks: Denis Barbier; closes: #485503).
+  * Put many more files into that directory (Thanks: Denis Barbier;
+    closes: #485498).
+  * Internally set CASROOT within source code, so users don't need to
+    define it (Thanks: Denis Barbier).
+  * Changed -D_OCC64 from Jason Kraftcheck's package to a definition in
+    Standard_Macro.hxx (Thanks: Denis Barbier; closes: #485877).
+  * Split out _OCC64 material into a separate OCC64.patch file, and added
+    a couple more hunks for source files which hadn't used it.
+  * Moved patches into their own subdir of debian/.
+  * Removed bison from Build-Depends.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Thu, 12 Jun 2008 23:15:38 -0400
+
+opencascade (6.2-3) unstable; urgency=low
+
+  * First upload!  (Closes: #464400)
+  * Added "-release 6.2" to LDADD for all libs making that the library version.
+  * Dropped -0 from shared lib package, and version from -dev package.
+  * Corrected a bunch of library dependencies.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 14 May 2008 18:38:09 -0400
+
+opencascade (6.2-2) unstable; urgency=low
+
+  * Converted FreeBSD tarball to .tar.gz as part of conversion back to version
+    1 source format, and removed a couple of non-distributable files.
+  * New copyright file uses http://wiki.debian.org/Proposals/CopyrightFormat
+  * Copyright information from audit performed by Aurélien Jarno and Denis
+    Barbier.
+  * Removed static libs from the -dev package, making it architecture-
+    independent.
+  * Changed doc-base section to Science/Engineering.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Tue, 13 May 2008 08:45:15 -0400
+
+opencascade (6.2-1) unstable; urgency=low
+
+  * Using FreeBSD tarball found at:
+    ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/thierry/
+    (significantly smaller, leaves out some plain binaries, etc.)
+  * Added file debian/audit.txt with current copyright/license audit status.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Tue, 06 May 2008 18:03:45 -0400
+
+opencascade (6.2.0-7) unstable; urgency=low
+
+  * Added .dat files from UnitsAPI to a new /usr/share/opencascade directory
+    in the shared lib package because Salomé needs them.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Fri, 25 Jan 2008 10:33:58 -0500
+
+opencascade (6.2.0-6) unstable; urgency=low
+
+  * NO STLPORT!  HATE IT!  KILL IT!  DESTROY IT!  ELIMINATE IT!
+  * Added -examples package for data directory.
+  * Re-worded Descriptions a bit.
+  * Updated README.Debian.html to reflect packaging changes.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Thu, 10 Jan 2008 10:20:23 -0500
+
+opencascade (6.2.0-5) unstable; urgency=low
+
+  * Added build-dep on libmesa-gl1-dev (thanks to Alexandre Fayolle).
+  * Converted copyright to UTF-8.
+  * Included triangle copyright issues in copyright file.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 09 Jan 2008 00:13:15 -0500
+
+opencascade (6.2.0-4) unstable; urgency=low
+
+  * Fixed brown bag error which left includes out of the package.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Tue, 08 Jan 2008 07:58:29 -0500
+
+opencascade (6.2.0-3) unstable; urgency=low
+
+  * Fixed egregious config.h problem.
+  * Fixed debian/rules so install depends on build but it doesn't try to
+    patch with every install (thanks to Aurelien Jarno).
+  * Moved source and -tools from non-free/math to non-free/science (thanks
+    to Aurelien Jarno).
+  * Parallel make (thanks to Aurelien Jarno).
+  * Fixed Homepage link in control (thanks to Aurelien Jarno).
+  * Moved headers to new /usr/include/opencascade directory.
+  * New doc-base entry.
+  * -dev package provides and conflicts with libopencascade-dev to prevent
+    simultaneous installs of different versions.
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Mon, 07 Jan 2008 09:35:23 -0500
+
+opencascade (6.2.0-2) unstable; urgency=low
+
+  * Added header copying into place to install target.
+  * Changed erroneous "nonfree" to "non-free" in control binary package
+    descriptions.
+  * Added .la files to -dev package.
+  * Versioned -dev package because users are likely to want to install a
+    particular version, but have not made an effort yet to conflict with
+    self or use alternatives to allow simultaneous installation of
+    multiple -dev packages.
+  * Added package description and more "bugs" to README.Debian.html.
+
+ -- Adam C Powell IV <hazelsct@debian.org>  Fri, 04 Jan 2008 05:18:44 +0000
+
+opencascade (6.2.0-1) unstable; urgency=low
+
+  * First Debianization of OpenCASCADE!
+  * Created .orig.tar.gz by extracting upstream OpenCASCADE_Linux.tgz, making a
+    dir opencascade-6.2.0, running "java -cp [path]/Linux/setup.jar run" in
+    that dir, removing the 3rdparty subdir and log.txt, then using "tar czf".
+  * Uses patchset from http://homepages.cae.wisc.edu/~kraftche/OCC/patches.html
+
+ -- "Adam C. Powell, IV" <hazelsct@debian.org>  Wed, 02 Jan 2008 16:32:57 -0500

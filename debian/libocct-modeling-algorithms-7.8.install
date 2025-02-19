@@ -1,0 +1,12 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBool.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBO.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKFeat.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKFillet.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKGeomAlgo.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKHLR.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKMesh.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKOffset.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKPrim.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKShHealing.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKTopAlgo.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXMesh.so.*

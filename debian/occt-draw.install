@@ -1,0 +1,31 @@
+#!/usr/bin/dh-exec
+../occ-icon-48.xpm usr/share/icons/hicolor/64x64/apps
+../occt-draw*.desktop usr/share/applications
+usr/bin/custom_gcc_${DEB_HOST_ARCH_BITS}.sh => usr/share/opencascade/bin/custom_gcc_${DEB_HOST_ARCH_BITS}.sh
+usr/bin/custom.sh => usr/share/opencascade/bin/custom.sh
+usr/bin/DRAWEXE-7.8.1 => usr/bin/occt-draw
+usr/bin/draw.sh => usr/share/opencascade/bin/draw.sh
+usr/bin/env.sh => usr/share/opencascade/bin/env.sh
+usr/share/opencascade/resources/DrawResources/CheckCommands.tcl
+usr/share/opencascade/resources/DrawResources/CURVES.tcl
+usr/share/opencascade/resources/DrawResources/dfb_attribns.gif
+usr/share/opencascade/resources/DrawResources/dfb_attribute.gif
+usr/share/opencascade/resources/DrawResources/dfb_folder.gif
+usr/share/opencascade/resources/DrawResources/dftree.tcl
+usr/share/opencascade/resources/DrawResources/DrawDefault
+usr/share/opencascade/resources/DrawResources/DrawPlugin
+usr/share/opencascade/resources/DrawResources/DrawTK.tcl
+usr/share/opencascade/resources/DrawResources/Geometry.tcl
+usr/share/opencascade/resources/DrawResources/InitEnvironment.tcl
+usr/share/opencascade/resources/DrawResources/lamp.ico
+usr/share/opencascade/resources/DrawResources/Move.tcl
+usr/share/opencascade/resources/DrawResources/OCC_logo.png
+usr/share/opencascade/resources/DrawResources/PROFIL.tcl
+usr/share/opencascade/resources/DrawResources/SCAN.tcl
+usr/share/opencascade/resources/DrawResources/StandardCommands.tcl
+usr/share/opencascade/resources/DrawResources/StandardViews.tcl
+usr/share/opencascade/resources/DrawResources/SURFACES.tcl
+usr/share/opencascade/resources/DrawResources/TestCommands.tcl
+usr/share/opencascade/resources/DrawResources/TKTopTest.tcl
+usr/share/opencascade/resources/DrawResources/Vector.tcl
+usr/share/opencascade/resources/TObj/TObj.msg

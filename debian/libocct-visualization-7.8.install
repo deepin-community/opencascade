@@ -1,0 +1,4 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKMeshVS.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKOpenGl*.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKService.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKV3d.so.*

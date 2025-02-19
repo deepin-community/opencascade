@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=OpenCASCADE
+Comment=OpenCASCADE DRAWEXE command interpreter and graphical test system
+Exec=occt-draw
+Icon=occ-icon-64
+Terminal=true
+Type=Application
+Version=1.0
+Categories=ConsoleOnly;Graphics;3DGraphics;DataVisualization;
+StartupNotify=false
+Keywords=Utility;Test;Shell;Graphics;

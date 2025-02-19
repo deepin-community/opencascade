@@ -1,0 +1,22 @@
+Description: This patch removes build refs to Files-Excluded in d/copyright
+Author: Kurt Kremitzki <kkremitzki@debian.lrg>
+Last-Update: 2020-11-23
+
+--- a/dox/FILES_HTML.txt
++++ b/dox/FILES_HTML.txt
+@@ -8,7 +8,6 @@
+ introduction/introduction.md
+ 
+ samples/samples.md
+-../samples/mfc/standard/ReadMe.md
+ ../samples/CSharp/ReadMe.md
+ ../samples/CSharp/ReadMe_D3D.md
+ ../samples/qt/AndroidQt/ReadMe.md
+@@ -16,7 +15,6 @@
+ ../samples/qt/OCCTOverview/ReadMe.md
+ ../samples/qt/Tutorial/ReadMe.md
+ ../samples/java/jniviewer/ReadMe.md
+-../samples/ios/UIKitSample/ReadMe.md
+ ../samples/webgl/ReadMe.md
+ ../samples/glfw/readme.md
+ samples/ocaf.md

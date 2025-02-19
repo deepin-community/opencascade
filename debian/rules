@@ -1,4 +1,39 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS   := $(shell dpkg-buildflags --get CPPFLAGS) $(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS := $(shell dpkg-buildflags --get CPPFLAGS) $(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS  := $(shell dpkg-buildflags --get LDFLAGS)
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	-DFREETYPE_INCLUDE_DIR=/usr/include/freetype2 \
+	-DINSTALL_CMAKE_DATA_DIR:PATH=lib/$(DEB_HOST_MULTIARCH)/opencascade \
+	-DINSTALL_DIR_LIB:PATH=lib/$(DEB_HOST_MULTIARCH) \
+	-DINSTALL_DIR_CMAKE:PATH=lib/$(DEB_HOST_MULTIARCH)/cmake/opencascade \
+	-DUSE_RAPIDJSON:BOOL=on \
+	-DUSE_TBB:BOOL=On \
+	-DUSE_VTK:BOOL=off \
+	-DUSE_FREEIMAGE:BOOL=on \
+	-DBUILD_RELEASE_DISABLE_EXCEPTIONS:BOOL=off \
+	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	$(if $(findstring $(DEB_HOST_ARCH),armel),-DIGNORE_NO_ATOMICS:BOOL=on)
+
+override_dh_installdocs-indep:
+	dh_installdocs
+	dh_doxygen
+
+#override_dh_missing:
+#	dh_missing --list-missing
+
+override_dh_shlibdeps:
+	# Disable unnecessary warnings happening because of the way the packages
+	# provide their shared libraries, see d/control
+	dh_shlibdeps -- --warnings=1

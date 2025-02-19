@@ -1,0 +1,16 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDraw.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKQADraw.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKTObjDRAW.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKTopTest.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKViewerTest.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXDEDRAW.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWDE.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWGLTF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWIGES.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWOBJ.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWPLY.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAW.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWSTEP.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWSTL.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSDRAWVRML.so.*

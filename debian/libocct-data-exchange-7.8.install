@@ -1,0 +1,14 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBinXCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDECascade.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDEGLTF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDEIGES.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDEOBJ.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDEPLY.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDE.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDESTEP.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDESTL.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKDEVRML.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKRWMesh.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXmlXCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXSBase.so.*

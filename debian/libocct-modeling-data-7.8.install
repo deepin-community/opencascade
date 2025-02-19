@@ -1,0 +1,4 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBRep.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKG2d.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKG3d.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKGeomBase.so.*

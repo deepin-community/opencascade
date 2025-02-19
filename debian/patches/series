@@ -1,0 +1,15 @@
+dox-cmake-cleanup.patch
+fix-install-dir-references.diff
+remove-cloudflare-mathjax.diff
+armel-ftbfs.patch
+do-not-use-doxygen-searchengine.patch
+0001-cmake-Don-t-try-to-write-to-install-directory.-You-k.patch
+0002-GeomPlate_BuildAveragePlane-BasePlan-Don-t-set-yvect.patch
+0003-BRepFill_Filling-WireFromList-We-can-t-assume-that-a.patch
+0004-BRepFill_Filling-Curve-constraints-confused-by-impli.patch
+0005-BRepFill_Filling-Don-t-even-attempt-to-build-with-em.patch
+0006-BRepOffset_Tool-TryProject-Check-return-of-BRepLib-B.patch
+0010-fix-cmake-module.patch
+0011-cmake-workaround-tbbmemory.patch
+0012-cmake-do-not-export-ffile-prefix.patch
+0013-use-auto-instead-of-specific-type.patch

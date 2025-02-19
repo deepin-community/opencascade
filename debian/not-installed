@@ -1,0 +1,14 @@
+debian/tmp/usr/share/doc/opencascade/LICENSE_LGPL_21.txt
+debian/tmp/usr/bin/DRAWEXE
+debian/tmp/usr/share/opencascade/resources/BOPAlgo/BOPAlgo.msg
+debian/tmp/usr/share/opencascade/resources/XmlOcafResource/FILES
+debian/tmp/usr/share/opencascade/resources/Textures/FILES
+debian/tmp/usr/share/opencascade/resources/XSMessage/FILES
+debian/tmp/usr/share/opencascade/resources/Shaders/FILES
+debian/tmp/usr/share/opencascade/resources/DrawResources/FILES
+debian/tmp/usr/share/opencascade/resources/XSTEPResource/FILES
+debian/tmp/usr/share/opencascade/resources/SHMessage/FILES
+debian/tmp/usr/share/opencascade/resources/StdResource/FILES
+debian/tmp/usr/include/opencascade/FlexLexer.h
+debian/tmp/usr/bin/ExpToCasExe
+debian/tmp/usr/bin/ExpToCasExe-7.8.1

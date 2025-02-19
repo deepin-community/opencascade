@@ -1,0 +1,13 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBinL.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBin.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKBinTObj.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKCDF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKLCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKStdL.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKStd.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKTObj.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKVCAF.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXmlL.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXml.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKXmlTObj.so.*

@@ -1,0 +1,46 @@
+Description: Fix cmake module path
+ to be able to install cmake module in mulipath. Also, do not bail out if an
+ opencascade component is not installed in the cmake module (it might be in a
+ different package)
+Author: Tobias Frost <tobi@debian.org>
+Forwarded: not yet
+Last-Update: 2022-10-19 <YYYY-MM-DD, last update of the meta-information, optional>
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,6 +11,7 @@
+     ADD_DEFINITIONS(-DIGNORE_NO_ATOMICS)
+ ENDIF(IGNORE_NO_ATOMICS)
+ 
++include(GNUInstallDirs)
+ 
+ # macro: include patched file if it exists
+ macro (OCCT_INCLUDE_CMAKE_FILE BEING_INCLUDED_FILE)
+--- a/adm/templates/OpenCASCADEConfig.cmake.in
++++ b/adm/templates/OpenCASCADEConfig.cmake.in
+@@ -36,11 +36,11 @@
+ endif()
+ 
+ # Set OpenCASCADE paths to headers, binaries, libraries, resources, tests, samples, data
+-set (OpenCASCADE_BINARY_DIR   "${OpenCASCADE_INSTALL_PREFIX}/@INSTALL_DIR_BIN@")
+-set (OpenCASCADE_LIBRARY_DIR  "${OpenCASCADE_INSTALL_PREFIX}/@INSTALL_DIR_LIB@")
+-set (OpenCASCADE_SCRIPT_DIR   "${OpenCASCADE_INSTALL_PREFIX}/@INSTALL_DIR_SCRIPT@")
+-set (OpenCASCADE_INCLUDE_DIR  "${OpenCASCADE_INSTALL_PREFIX}/@INSTALL_DIR_INCLUDE@")
+-set (OpenCASCADE_RESOURCE_DIR "${OpenCASCADE_INSTALL_PREFIX}/@INSTALL_DIR_RESOURCE@")
++set (OpenCASCADE_BINARY_DIR   "@CMAKE_INSTALL_FULL_BINDIR@")
++set (OpenCASCADE_LIBRARY_DIR  "@CMAKE_INSTALL_FULL_LIBDIR@")
++set (OpenCASCADE_SCRIPT_DIR   "@CMAKE_INSTALL_FULL_BINDIR@")
++set (OpenCASCADE_INCLUDE_DIR  "@CMAKE_INSTALL_FULL_INCLUDEDIR@/opencascade")
++set (OpenCASCADE_RESOURCE_DIR "@CMAKE_INSTALL_FULL_DATAROOTDIR@/opencascade/resources")
+ 
+ # The C and C++ flags added by OpenCASCADE to the cmake-configured flags.
+ set (OpenCASCADE_C_FLAGS      "@CMAKE_C_FLAGS@")
+@@ -89,6 +89,6 @@
+       message (ERROR ": ${OpenCASCADE_NOTFOUND_MESSAGE}")
+     endif()
+   else()
+-    include("${CMAKE_CURRENT_LIST_DIR}/OpenCASCADE${_comp}Targets.cmake")
++    include("${CMAKE_CURRENT_LIST_DIR}/OpenCASCADE${_comp}Targets.cmake" OPTIONAL)
+   endif()
+ endforeach()

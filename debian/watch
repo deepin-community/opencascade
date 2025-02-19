@@ -1,0 +1,4 @@
+version=4
+opts="dversionmangle=s/\+dfsg\d*$//, repacksuffix=+dfsg1,uversionmangle=s/_/./g, downloadurlmangle=s/log/snapshot/, filenamemangle=s/.*\/V(\d)_(\d)_(\dp?\d?)/opencascade_$1.$2.$3.orig.tar.gz/" \
+    https://git.dev.opencascade.org/gitweb/?p=occt.git;a=tags \
+    .*a=log;h=refs/tags/V(\d[\d_p]+)

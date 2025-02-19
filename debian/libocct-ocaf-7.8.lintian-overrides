@@ -1,0 +1,7 @@
+# this package contains a bunch of libraries and can thus not be named properly
+package-name-doesnt-match-sonames
+
+# false positive lack of hardening detected
+hardening-no-fortify-functions
+# symbols control files are not sustainable.
+no-symbols-control-file

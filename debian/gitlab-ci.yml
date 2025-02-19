@@ -1,0 +1,15 @@
+---
+include:
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/salsa-ci.yml
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/pipeline-jobs.yml
+
+variables:
+# dbgsym packages will fail the build by exceeding the allowed artifact size.
+  DEB_BUILD_OPTIONS: "noddebs"
+# repotest takes too long and will fail the build by hitting the timeout.
+  SALSA_CI_DISABLE_REPROTEST: 1
+
+
+# piuparts is unstable somewhere, not our fault.
+piuparts:
+  allow_failure: true

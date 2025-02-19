@@ -1,15 +1,414 @@
-Source: template-repository
-Section: unknown
+Source: opencascade
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Kurt Kremitzki <kkremitzki@debian.org>,
+           Tobias Frost <tobi@debian.org>
+Section: science
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: dpkg-dev (>= 1.22.5), cmake,
+               debhelper-compat (= 13),
+               dh-exec,
+               libfreeimage-dev,
+               libfreetype-dev,
+               libgl-dev,
+               libglu1-mesa-dev | libglu-dev,
+               libglvnd-dev,
+               libtbb-dev,
+               libx11-dev,
+               libxext-dev,
+               libxi-dev,
+               libxmu-dev,
+               rapidjson-dev,
+               tcl-dev,
+               tk-dev
+Build-Depends-Indep: doxygen,
+                     graphviz
+Standards-Version: 4.7.0
+Vcs-Browser: https://salsa.debian.org/science-team/opencascade
+Vcs-Git: https://salsa.debian.org/science-team/opencascade.git
+Homepage: https://www.opencascade.com/
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: libocct-foundation-7.8
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-foundation-7.5,
+        libocct-foundation-7.6, libocct-foundation-7.6t64,
+        libocct-foundation-7.7,
+Replaces: libocct-foundation-7.5,
+          libocct-foundation-7.6, libocct-foundation-7.6t64,
+          libocct-foundation-7.7,
+Description: OCCT module underlying all other OCCT classes
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains foundation classes which provide a variety of
+ general-purpose services such as automated management of heap memory,
+ exception handling, classes for manipulating aggregates of data, basic
+ math tools.
+ .
+ This package contains the following shared libraries:
+   TKernel TKMath
+
+Package: libocct-foundation-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libocct-foundation-7.8 (<< ${binary:Version}+1~),
+         libocct-foundation-7.8 (>= ${binary:Version}),
+         ${misc:Depends}
+Conflicts: liboce-foundation-dev
+Breaks: occt-misc (<< 7.6.3+dfsg1-4~)
+Replaces: liboce-foundation-dev, occt-misc (<< 7.6.3+dfsg1-4~)
+Description: Open CASCADE Technology module underlying all other OCCT classes - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-foundation.
+
+Package: libocct-modeling-data-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-modeling-data-7.5,
+        libocct-modeling-data-7.6, libocct-modeling-data-7.6t64,
+        libocct-modeling-data-7.7
+Replaces: libocct-modeling-data-7.5,
+          libocct-modeling-data-7.6, libocct-modeling-data-7.6t64,
+          libocct-modeling-data-7.7
+Description: Open CASCADE Technology 2D/3D geometric primitives data structures
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package supplies data structures to represent 2D and 3D geometric models.
+ .
+ This package contains the following shared libraries:
+   TKG2d TKG3d TKGeomBase TKBRep
+
+Package: libocct-modeling-data-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libocct-foundation-dev (<< ${binary:Version}+1~),
+         libocct-foundation-dev (>= ${binary:Version}),
+         libocct-modeling-data-7.8 (<< ${binary:Version}+1~),
+         libocct-modeling-data-7.8 (>= ${binary:Version}),
+         ${misc:Depends}
+Conflicts: liboce-modeling-dev
+Replaces: liboce-modeling-dev
+Description: Open CASCADE Technology 2D/3D geometric primitives data structures - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-modeling-data.
+
+Package: libocct-modeling-algorithms-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-modeling-algorithms-7.5,
+        libocct-modeling-algorithms-7.6, libocct-modeling-algorithms-7.6t64,
+        libocct-modeling-algorithms-7.7
+Replaces: libocct-modeling-algorithms-7.5,
+          libocct-modeling-algorithms-7.6, libocct-modeling-algorithms-7.6t64,
+          libocct-modeling-algorithms-7.7
+Description: Open CASCADE Technology geometrical & topological algorithms module
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the following shared libraries:
+   TKGeomAlgo TKTopAlgo TKPrim TKBO TKBool TKHLR TKFillet TKOffset TKFeat
+   TKMesh TKXMesh TKShHealing
+
+Package: libocct-modeling-algorithms-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libocct-foundation-dev (<< ${binary:Version}+1~),
+         libocct-foundation-dev (>= ${binary:Version}),
+         libocct-modeling-algorithms-7.8 (<< ${binary:Version}+1~),
+         libocct-modeling-algorithms-7.8 (>= ${binary:Version}),
+         ${misc:Depends}
+Conflicts: liboce-modeling-dev
+Replaces: liboce-modeling-dev
+Description: Open CASCADE Technology geometrical & topological algorithms module - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-modeling-algorithms.
+
+Package: libocct-visualization-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         occt-misc (= ${source:Version})
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-visualization-7.5,
+        libocct-visualization-7.6,libocct-visualization-7.6t64,
+        libocct-visualization-7.7,
+Replaces: libocct-visualization-7.5,
+          libocct-visualization-7.6,libocct-visualization-7.6t64,
+          libocct-visualization-7.7,
+Description: Open CASCADE Technology graphical data visualization module
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package provides services for displaying 2D and 3D graphics.
+ .
+ This package contains the following shared libraries:
+  TKService TKV3d TKOpenGl TKMeshVS TKIVtk TKD3DHost
+
+Package: libocct-visualization-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libfreeimage-dev,
+         libfreetype-dev,
+         libgl-dev,
+         libglu1-mesa-dev | libglu-dev,
+         libocct-foundation-dev (<< ${binary:Version}+1~),
+         libocct-foundation-dev (>= ${binary:Version}),
+         libocct-modeling-algorithms-dev (<< ${binary:Version}+1~),
+         libocct-modeling-algorithms-dev (>= ${binary:Version}),
+         libocct-modeling-data-dev (<< ${binary:Version}+1~),
+         libocct-modeling-data-dev (>= ${binary:Version}),
+         libocct-ocaf-dev (<< ${binary:Version}+1~),
+         libocct-ocaf-dev (>= ${binary:Version}),
+         libocct-visualization-7.8 (<< ${binary:Version}+1~),
+         libocct-visualization-7.8 (>= ${binary:Version}),
+         libx11-dev,
+         libxext-dev,
+         libxmu-dev,
+         ${misc:Depends}
+Conflicts: liboce-visualization-dev
+Replaces: liboce-visualization-dev
+Description: Open CASCADE Technology graphical data visualization module - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-visualization.
+
+Package: libocct-ocaf-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.6t64, libocct-ocaf-7.7
+Replaces: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.6t64, libocct-ocaf-7.7
+Description: Open CASCADE Technology application-specific data and functionality
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package provides Open CASCADE Application Framework services.
+ .
+ This package contains the following shared libraries:
+ .
+   TKCDF TKLCAF TKCAF TKBinL TKXmlL TKBin TKXml TKStdL TKStd TKTObj TKBinTObj
+   TKXmlTObj TKVCAF
+
+Package: libocct-ocaf-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libocct-foundation-dev (<< ${binary:Version}+1~),
+         libocct-foundation-dev (>= ${binary:Version}),
+         libocct-modeling-algorithms-dev (<< ${binary:Version}+1~),
+         libocct-modeling-algorithms-dev (>= ${binary:Version}),
+         libocct-modeling-data-dev (<< ${binary:Version}+1~),
+         libocct-modeling-data-dev (>= ${binary:Version}),
+         libocct-ocaf-7.8 (<< ${binary:Version}+1~),
+         libocct-ocaf-7.8 (>= ${binary:Version}),
+         libocct-visualization-7.8 (<< ${binary:Version}+1~),
+         libocct-visualization-7.8 (>= ${binary:Version}),
+         ${misc:Depends}
+Conflicts: liboce-ocaf-dev,
+           liboce-ocaf-lite-dev
+Replaces: liboce-ocaf-dev,
+          liboce-ocaf-lite-dev
+Description: Open CASCADE Technology application-specific data and functionality - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-ocaf.
+
+Package: libocct-data-exchange-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-data-exchange-7.5,
+        libocct-data-exchange-7.6, libocct-data-exchange-7.6t64,
+        libocct-data-exchange-7.7,
+Replaces: libocct-data-exchange-7.5,
+          libocct-data-exchange-7.6, libocct-data-exchange-7.6t64,
+          libocct-data-exchange-7.7,
+Description: Open CASCADE Technology module for CAD data format interoperability
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package provides support for data exchange.
+ .
+ This package contains the following shared libraries:
+   TKXSBase TKSTEPBase TKSTEPAttr TKSTEP209 TKSTEP TKIGES TKXCAF TKXDEIGES
+   TKXDESTEP TKSTL TKVRML TKXmlXCAF TKBinXCAF
+
+Package: libocct-data-exchange-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libocct-data-exchange-7.8 (<< ${binary:Version}+1~),
+         libocct-data-exchange-7.8 (>= ${binary:Version}),
+         libocct-foundation-dev (<< ${binary:Version}+1~),
+         libocct-foundation-dev (>= ${binary:Version}),
+         libocct-modeling-algorithms-dev (<< ${binary:Version}+1~),
+         libocct-modeling-algorithms-dev (>= ${binary:Version}),
+         libocct-modeling-data-dev (<< ${binary:Version}+1~),
+         libocct-modeling-data-dev (>= ${binary:Version}),
+         libocct-ocaf-dev (<< ${binary:Version}+1~),
+         libocct-ocaf-dev (>= ${binary:Version}),
+         libocct-visualization-dev (<< ${binary:Version}+1~),
+         libocct-visualization-dev (>= ${binary:Version}),
+         ${misc:Depends}
+Conflicts: liboce-modeling-dev,
+           liboce-ocaf-dev,
+           liboce-ocaf-lite-dev,
+           liboce-visualization-dev
+Replaces: liboce-ocaf-dev,
+          liboce-ocaf-lite-dev
+Description: Open CASCADE Technology module for CAD data format interoperability - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-data-exchange.
+
+Package: libocct-draw-7.8
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.6t64, libocct-draw-7.7
+Replaces: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.6t64, libocct-draw-7.7
+Description: Open CASCADE Technology command interpreter & graphical test library
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ Draw is a command interpreter based on Tcl and a graphical system used to test
+ and demonstrate Open CASCADE Technology modeling libraries.
+ .
+ This package provides the shared libraries component of Draw.
+
+Package: libocct-draw-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libfreetype-dev,
+         libocct-draw-7.8 (<< ${binary:Version}+1~),
+         libocct-draw-7.8 (>= ${binary:Version}),
+         libx11-dev,
+         tcl8.6-dev,
+         tk8.6-dev,
+         ${misc:Depends}
+Description: Open CASCADE Technology interpreter & graphics test library - dev files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ Draw is a command interpreter based on Tcl and a graphical system used to test
+ and demonstrate Open CASCADE Technology modeling libraries.
+ .
+ This package contains the headers and symlinks for libraries shipped by
+ libocct-draw.
+
+Package: occt-draw
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Conflicts: oce-draw
+Replaces: oce-draw
+Description: Open CASCADE Technology command interpreter and graphical test system
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ Draw is a command interpreter based on Tcl and a graphical system used to test
+ and demonstrate Open CASCADE Technology modeling libraries.
+
+Package: occt-misc
+Multi-Arch: foreign
+Architecture: all
+Section: utils
+Depends: ${misc:Depends}
+Breaks: libocct-foundation-dev (<< 7.6.3+dfsg1-4~)
+Description: OCCT CAE platform shared library miscellaneous files
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains resource files.
+
+Package: libocct-doc
+Multi-Arch: foreign
+Architecture: all
+Section: doc
+Depends: libjs-mathjax,
+         ${misc:Depends}
+Description: Open CASCADE Technology CAE platform documentation
+ Open CASCADE Technology is a suite for 3D surface and solid modeling,
+ visualization, data exchange and rapid application development.  It is an
+ excellent platform for development of numerical simulation software including
+ CAD/CAM/CAE, AEC and GIS, as well as PDM applications.
+ .
+ This package contains documentation files.

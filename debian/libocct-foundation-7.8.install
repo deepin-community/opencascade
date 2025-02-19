@@ -1,0 +1,3 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libTKernel.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKExpress.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libTKMath.so.*

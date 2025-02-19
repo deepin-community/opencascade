@@ -1,0 +1,28 @@
+Description: fix install dir references for debian
+ This patch fixes cmake install dir references and comes from the opencascade7
+ package on the ArchLinux User Repository.
+Origin: vendor, https://aur.archlinux.org/cgit/aur.git/tree/fix-install-dir-references.patch?h=opencascade7
+Author: Grey Christoforo
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1265,7 +1265,7 @@
+ endforeach()
+ # install OpenCASCADE config file with compile definitions and C/C++ flags ONLY for current configuration
+ install (CODE "string (TOLOWER \"\${CMAKE_INSTALL_CONFIG_NAME}\" CMAKE_INSTALL_CONFIG_NAME_LOWER)")
+-install (CODE "file(INSTALL FILES \"${CMAKE_BINARY_DIR}/OpenCASCADECompileDefinitionsAndFlags-\${CMAKE_INSTALL_CONFIG_NAME_LOWER}.cmake\" DESTINATION \"${INSTALL_DIR}/${INSTALL_DIR_CMAKE}/\" TYPE FILE)")
++install (CODE "file(INSTALL FILES \"${CMAKE_BINARY_DIR}/OpenCASCADECompileDefinitionsAndFlags-\${CMAKE_INSTALL_CONFIG_NAME_LOWER}.cmake\" DESTINATION \"$ENV{DESTDIR}${INSTALL_DIR}/${INSTALL_DIR_CMAKE}/\" TYPE FILE)")
+ 
+ foreach (OCCT_MODULE ${OCCT_MODULES})
+   if (BUILD_MODULE_${OCCT_MODULE})
+--- a/adm/cmake/occt_macros.cmake
++++ b/adm/cmake/occt_macros.cmake
+@@ -592,7 +592,7 @@
+ 
+   install (CODE
+   "string (TOLOWER \"\${CMAKE_INSTALL_CONFIG_NAME}\" CMAKE_INSTALL_CONFIG_NAME_LOWERCASE)
+-  file (GLOB ALL_OCCT_TARGET_FILES \"${INSTALL_DIR}/${INSTALL_DIR_CMAKE}/OpenCASCADE*Targets-\${CMAKE_INSTALL_CONFIG_NAME_LOWERCASE}.cmake\")
++  file (GLOB ALL_OCCT_TARGET_FILES \"\$ENV{DESTDIR}${INSTALL_DIR}/${INSTALL_DIR_CMAKE}/OpenCASCADE*Targets-\${CMAKE_INSTALL_CONFIG_NAME_LOWERCASE}.cmake\")
+   foreach(TARGET_FILENAME \${ALL_OCCT_TARGET_FILES})
+     file (STRINGS \"\${TARGET_FILENAME}\" TARGET_FILE_CONTENT)
+     file (REMOVE \"\${TARGET_FILENAME}\")

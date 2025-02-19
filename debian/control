@@ -36,10 +36,10 @@ Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: libocct-foundation-7.5,
-        libocct-foundation-7.6, libocct-foundation-7.6t64,
+        libocct-foundation-7.6,
         libocct-foundation-7.7,
 Replaces: libocct-foundation-7.5,
-          libocct-foundation-7.6, libocct-foundation-7.6t64,
+          libocct-foundation-7.6,
           libocct-foundation-7.7,
 Description: OCCT module underlying all other OCCT classes
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
@@ -82,10 +82,10 @@ Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: libocct-modeling-data-7.5,
-        libocct-modeling-data-7.6, libocct-modeling-data-7.6t64,
+        libocct-modeling-data-7.6,
         libocct-modeling-data-7.7
 Replaces: libocct-modeling-data-7.5,
-          libocct-modeling-data-7.6, libocct-modeling-data-7.6t64,
+          libocct-modeling-data-7.6,
           libocct-modeling-data-7.7
 Description: Open CASCADE Technology 2D/3D geometric primitives data structures
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
@@ -126,10 +126,10 @@ Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: libocct-modeling-algorithms-7.5,
-        libocct-modeling-algorithms-7.6, libocct-modeling-algorithms-7.6t64,
+        libocct-modeling-algorithms-7.6,
         libocct-modeling-algorithms-7.7
 Replaces: libocct-modeling-algorithms-7.5,
-          libocct-modeling-algorithms-7.6, libocct-modeling-algorithms-7.6t64,
+          libocct-modeling-algorithms-7.6,
           libocct-modeling-algorithms-7.7
 Description: Open CASCADE Technology geometrical & topological algorithms module
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
@@ -170,10 +170,10 @@ Depends: ${misc:Depends},
          occt-misc (= ${source:Version})
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: libocct-visualization-7.5,
-        libocct-visualization-7.6,libocct-visualization-7.6t64,
+        libocct-visualization-7.6,
         libocct-visualization-7.7,
 Replaces: libocct-visualization-7.5,
-          libocct-visualization-7.6,libocct-visualization-7.6t64,
+          libocct-visualization-7.6,
           libocct-visualization-7.7,
 Description: Open CASCADE Technology graphical data visualization module
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
@@ -226,8 +226,8 @@ Section: libs
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
-Breaks: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.6t64, libocct-ocaf-7.7
-Replaces: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.6t64, libocct-ocaf-7.7
+Breaks: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.7
+Replaces: libocct-ocaf-7.4, libocct-ocaf-7.5, libocct-ocaf-7.6, libocct-ocaf-7.7
 Description: Open CASCADE Technology application-specific data and functionality
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
  visualization, data exchange and rapid application development.  It is an
@@ -277,10 +277,10 @@ Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: libocct-data-exchange-7.5,
-        libocct-data-exchange-7.6, libocct-data-exchange-7.6t64,
+        libocct-data-exchange-7.6,
         libocct-data-exchange-7.7,
 Replaces: libocct-data-exchange-7.5,
-          libocct-data-exchange-7.6, libocct-data-exchange-7.6t64,
+          libocct-data-exchange-7.6,
           libocct-data-exchange-7.7,
 Description: Open CASCADE Technology module for CAD data format interoperability
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
@@ -333,8 +333,8 @@ Section: libs
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: ${misc:Pre-Depends}
-Breaks: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.6t64, libocct-draw-7.7
-Replaces: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.6t64, libocct-draw-7.7
+Breaks: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.7
+Replaces: libocct-draw-7.4, libocct-draw-7.5, libocct-draw-7.6, libocct-draw-7.7
 Description: Open CASCADE Technology command interpreter & graphical test library
  Open CASCADE Technology is a suite for 3D surface and solid modeling,
  visualization, data exchange and rapid application development.  It is an

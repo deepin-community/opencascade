@@ -1,3 +1,9 @@
+opencascade (7.8.1+dfsg1-3deepin1) unstable; urgency=medium
+
+  * revert t64
+
+ -- lhdjply <lhdjply@126.com>  Wed, 19 Feb 2025 17:15:00 +0800
+
 opencascade (7.8.1+dfsg1-3) unstable; urgency=medium
 
   * Team upload.
